@@ -58,6 +58,17 @@ def depth_callback(data):
 	(rows, cols, channels) = depth_colormap.shape
 	if cols > 60 and rows > 60:
 		cv2.circle(depth_colormap, (200, 200), 100, (255, 0, 255), 2)
+		
+	distance = depth_image[200, 200] * 0.001
+	print('The distance date of the circle center is %6.3f' % distance)
+	
+	cv2.putText(depth_colormap,
+	            'The distance date of the circle center is' + str(distance),
+	            (50, 400),
+	            cv2.FONT_HERSHEY_COMPLEX,
+	            0.7,
+	            (0, 0, 255),
+	            1)
 	
 	depth_enable = True
 	print('depth images are ready!')

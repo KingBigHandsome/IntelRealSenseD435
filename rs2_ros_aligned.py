@@ -74,6 +74,9 @@ def combination():
 		print('Both color and depth images are ready')
 		image = np.hstack((color_image, depth_colormap))
 		cv2.imshow("Image window", image)
+		for i in range(100):
+			path = 'test'+str(i)+'.jpg'
+			cv2.imwrite(path, image)		
 		cv2.waitKey(3)
 
 
